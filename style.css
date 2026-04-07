@@ -1,15 +1,15 @@
 :root {
-    --bg-color: #050505;
+    --bg-color: #0d0b14;
     --card-bg: rgba(255, 255, 255, 0.03);
     --card-hover-bg: rgba(255, 255, 255, 0.08);
     --card-border: rgba(255, 255, 255, 0.05);
     --card-hover-border: rgba(255, 255, 255, 0.15);
     --text-primary: #ffffff;
     --text-secondary: #a1a1aa;
-    --accent: #8b5cf6;
-    --accent-glow: rgba(139, 92, 246, 0.5);
-    --gradient-1: #8b5cf6;
-    --gradient-2: #3b82f6;
+    --accent: #ff00a0;
+    --accent-glow: rgba(255, 0, 160, 0.5);
+    --gradient-1: #ff00a0;
+    --gradient-2: #6500ff;
 }
 
 * {
@@ -21,6 +21,14 @@
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 90px 40px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.5), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 130px 180px, #ffffff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
     color: var(--text-primary);
     min-height: 100vh;
     overflow-x: hidden;
@@ -91,21 +99,81 @@ header {
     color: white;
 }
 
-h1 {
-    font-size: 3.5rem;
+.logo-title {
+    font-size: 4rem;
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.sub-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 6px;
     margin-bottom: 1rem;
-    background: linear-gradient(to right, #fff, #a1a1aa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+}
+
+.logo-exclam {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    transform: translateY(-2px);
+}
+
+.logo-exclam .stem {
+    width: 10px;
+    height: 38px;
+    background-color: white;
+    margin-bottom: 6px;
+    border-radius: 2px;
+}
+
+.logo-exclam .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
 }
 
 header p {
     color: var(--text-secondary);
     font-size: 1.125rem;
     max-width: 600px;
+}
+
+.author-badge {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.author-badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: var(--accent);
+}
+
+.author-badge strong {
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .gems-grid {
@@ -238,8 +306,24 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
+    .logo-title {
+        font-size: 2.8rem;
+    }
+    
+    .logo-exclam .stem {
+        height: 26px;
+        width: 8px;
+        margin-bottom: 4px;
+    }
+    
+    .logo-exclam .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .sub-logo {
+        font-size: 1.2rem;
+        letter-spacing: 4px;
     }
     
     .gems-grid {
